@@ -1,0 +1,69 @@
+<div class="container1">
+			<div class="row main">
+				<div class="panel-heading">
+	               <div class="panel-title text-center">
+	               		<h1 class="title">ActivelyLearn</h1>
+	               		<hr />
+	               	</div>
+	            </div> 
+				<div class="main-login main-center">
+					<form class="form-horizontal" method="post" action="#">
+						
+						<div class="form-group">
+							<label for="name" class="cols-sm-2 control-label">Your Employee ID</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+									
+									{{input type="text" class="form-control" name="name" id="name" required=true placeholder="Enter your ID" valueBinding='employeeID' disabled=entryNotAllowed size="10"}}
+
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="email" class="cols-sm-2 control-label">From</label>
+							<div class="cols-sm-10">
+								<div class="input-group">									
+										<select  class="form-control" onchange={{action (mut vehicleIndex) value="target.value"}}>
+  											{{#each vehicles as |vehicleChoice index|}}
+    											<option value={{ index }} selected={{vehicleIndex}}>{{vehicleChoice.name}}</option>
+  											{{/each}}
+									</select>										
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="username" class="cols-sm-2 control-label">To</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<select  class="form-control" onchange={{action (mut vehicleIndex) value="target.value"}}>
+  											{{#each vehicles as |vehicleChoice index|}}
+    											<option value={{ index }} selected={{vehicleIndex}}>{{vehicleChoice.name}}</option>
+  											{{/each}}
+									</select>	
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="password" class="cols-sm-2 control-label">Time</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+									<input type="password" class="form-control" name="password" id="password" required=true placeholder="Enter time"/>
+								</div>
+							</div>
+						</div>						
+
+						<div class="form-group ">
+							<button type="button" class="btn btn-primary btn-lg btn-block login-button" {{action 'searchCabs'}}>Search</button>
+						</div>
+						<div class="login-register">
+				            <a href="index.php">Login</a>
+				         </div>
+					</form>
+				</div>
+			</div>
+		</div>
