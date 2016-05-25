@@ -7,47 +7,21 @@ export default Ember.Controller.extend({
 	toLocation: null,
 	timeGiven: null,
 	selectedFrom: 'Tom',
-  	fromPoints: ["Yehuda", "Tom"],
   	vehicleIndex: 0,
   	
   	vehicle: Ember.computed('vehicleIndex', function() {
     	return this.get('vehicles')[this.get('vehicleIndex')];
-  	}),
+  	}),  	
 
-  	vehicles: [],	
+  	vehicles: [],
+  	
+  	// fromPoints[] will be populated from backend using component
+  	fromPoints: [],	
 
   	
 	actions: {
-		searchCabs() {
-			Ember.run.scheduleOnce('afterRender', this, function() {
-    			console.log("there")
-  			})
-  			
-			console.log(this.get('employeeID'));
-			$.ajax({
-			  type: 'GET',
-			  data: {},
-           	  dataType: "json",	
-			  url: "http://192.168.1.105:3000/points",
-			  success: function(vehicles1) {
-			  	var data
-			  	console.log(vehicles1)
-			  	$.each(vehicles1, function (i,v)
-					{
-  						console.log(i,v)
-  						$("#from-loc").append(
-              				$('<option />')
-                  			.text(v.name)
-                  			.val(v.name)
-          				);
-
-				});
-				
-			  },
-			  error: function(e) {
-			  	console.log(e)
-			  }
-			  });
+		searchCabs() {  			
+			// feature yet to be implemented			
 
 		}
 	}
